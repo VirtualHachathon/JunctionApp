@@ -25,7 +25,6 @@ const credentialsJ = {
  * @param {function} callback The callback to call with the authorized client.
  */
 function authorize(credentials, callback, callbackParameter = null) {
-    console.log("authorizing")
     const { client_secret, client_id, redirect_uris } = credentials.installed
     const oAuth2Client = new google.auth.OAuth2(
         client_id,
@@ -34,18 +33,14 @@ function authorize(credentials, callback, callbackParameter = null) {
     )
 
     // Check if we have previously stored a token.
-    fs.readFile(TOKEN_PATH, (err, token) => {
+    /*fs.readFile(TOKEN_PATH, (err, token) => {
         if (err) {
             console.log('Error loading google calendar token file')
             return false
         }
-        console.log("got token",token)
         oAuth2Client.setCredentials(JSON.parse(token))
-        console.log("oAuth2Client, callbackParameter",callback(oAuth2Client, callbackParameter))
         callback(oAuth2Client, callbackParameter)
-    })
-
-    /*
+    })*/
     const token = {
         access_token:"ya29.a0Ael9sCMoo8IabUn5UxLm0o0Hn02-tPd6zyfYQ_3oz3lfvbXv74tuNwiFaDuVBDYSpxXm3B5kevx6XBrXWLfKsgTmfmr7GK1GTZwp03vv0v21VYPoZfbNjhgNoeNn-uZNZpzFDLLLcEZSeZC9gD8gtxi595JAaCgYKARESARASFQF4udJhPMx_xWNBafEIZTOxqIDNag0163", //global.gConfig.GOOGLE_ACCESS_TOKEN,
         refresh_token:"1//0cnu7b1wJjlcECgYIARAAGAwSNwF-L9Irtd583yuPmAaI4NpEfSqzdUfAiJHW05KC3rHwripIMUj9z2K65p1HZkOs9RjesuFdsFE",//global.gConfig.GOOGLE_REFRESH_TOKEN,
@@ -56,11 +51,10 @@ function authorize(credentials, callback, callbackParameter = null) {
 
     oAuth2Client.setCredentials(JSON.parse(JSON.stringify(token)))
     callback(oAuth2Client, callbackParameter)
-    */
+
 }
 
 const insertEvent = (auth, eventInfo) => {
-    console.log("inserting")
     const calendar = google.calendar({ version: 'v3', auth })
     calendar.events.insert(
         {
@@ -72,11 +66,10 @@ const insertEvent = (auth, eventInfo) => {
         (err, res) => {
             if (err) {
                 console.log(
-                    `There was an error contacting the Calendar service: ${err}`, res
+                    `There was an error contacting the Calendar service: ${err}`,
                 )
                 // cancelMeeting(eventInfo.meetingId)
             } else {
-                console.log(res)
                 updateMeetingGoogleInfo(
                     eventInfo.meetingId,
                     res.data.id,
@@ -125,7 +118,6 @@ const deleteGoogleEvent = eventId => {
 }
 
 const createGoogleEvent = event => {
-    console.log("creating google event")
     try {
         const googleEvent = {
             summary: event.title + " ||  " + event.desc || 'Junction: meeting with challenge partner',
@@ -169,10 +161,8 @@ const createGoogleEvent = event => {
 
         console.log(credentialsJ)
         authorize(JSON.parse(JSON.stringify(credentialsJ)),insertEvent,eventInfo)
-        console.log("success")
         return true
     } catch (err) {
-        console.log("no meets for you")
         return false
     }
 }

@@ -1,15 +1,17 @@
 import React from 'react'
+
 import { Box, Grid } from '@material-ui/core'
+
 import PageHeader from 'components/generic/PageHeader'
 import { Helmet } from 'react-helmet'
 import config from 'constants/config'
+
 import RegistrationStatusBlock from './Blocks/RegistrationStatusBlock'
 import ProjectBlock from './Blocks/ProjectBlock'
 import TeamStatusBlock from './Blocks/TeamStatusBlock'
 import VisaInvitationBlock from './Blocks/VisaInvitationBlock'
 import TravelGrantStatusBlock from './Blocks/TravelGrantStatusBlock'
 import GavelReviewingBlock from './Blocks/GavelReviewingBlock'
-import ProjectSubmissionsBlock from './Blocks/ProjectSubmissionsBlock'
 //import PartnerReviewingBlock from './Blocks/PartnerReviewingBlock'
 import ReviewingPeriodBlock from './Blocks/ReviewingPeriodBlock'
 import CertificateBlock from './Blocks/CertificateBlock'
@@ -27,7 +29,6 @@ import * as UserSelectors from 'redux/user/selectors'
 export default ({ alerts }) => {
     const user = useSelector(UserSelectors.userProfile)
     const event = useSelector(DashboardSelectors.event)
-    const projects = useSelector(DashboardSelectors.projects)
     const isPartner =
         user.userId == 'google-oauth2|108766439620242776277' ||
         (useSelector(AuthSelectors.idTokenData)?.roles?.includes('Recruiter') &&
@@ -87,18 +88,32 @@ export default ({ alerts }) => {
             </Helmet>
             <Box mt={2} />
             <Grid container spacing={5}>
+                
+                {event?.demoInstructions && (
+                <div style={{ marginTop: 20, marginBottom: 20, marginLeft: 20, padding: 24, backgroundColor: '#cff4fc', borderWidth: 1, borderColor: '#9eeaf9', borderRadius: 13 }}>
+                    <h1 style={{ marginBottom: 0, marginTop: 0, lineHeight: 1, fontWeight: 'normal', color: '#087990' }}>Event roadmap</h1>
+                    <h3 style={{ marginTop: 0, fontWeight: 'normal', color: '#087990' }}>To view the event Roadmap please click on the link below.</h3>
+                    <a style={{ display: 'inline-block', fontSize: 18, fontWeight: 'bold', color: '#087990' }} href={event.demoInstructions} target="_blank">Go to roadmap</a>
+                </div>
+                )}
+                
+                
+                {event.slug == 'hydrogen-hackathon' && (
+                    <div style={{ marginTop: 20, marginBottom: 20, marginLeft: 0, padding: 24 }}>
+                        <a style={{ display: 'inline-block', fontSize: 18, fontWeight: 'bold', color: '#087990' }} href="https://docs.google.com/document/d/12Ci9mqdL21_fiLqhxh598l1dtuZ4-AH2j0h-Em2xyu8/edit" target="_blank">View programme</a>
+                    </div>
+                )}
+                
                 <div
                     style={{
                         height: '400px',
                         width: '100%',
                         display: 'flex',
-                        padding: '2em',
                     }}
                 >
                     <AlertBlock alerts={alerts} />
                 </div>
                 <EventOverBlock />
-                <ProjectSubmissionsBlock projects={projects} event={event} />
                 <ReviewingPeriodBlock />
                 <RegistrationStatusBlock />
                 <TravelGrantStatusBlock />

@@ -39,7 +39,7 @@ const BasicNavBar = ({ text }) => {
                 </Typography>
                 <div className={classes.inner}>
                     <UserMenu />
-                    <LanguageMenu />
+                    {/* <LanguageMenu /> */}
                 </div>
             </div>
         </div>

@@ -33,17 +33,15 @@ export default ({ history, location }) => {
     }, [location, history])
 
     useEffect(() => {
-        
         if (isAuthenticated) {
             if (isSessionExpired) {
                 setLoading(true)
-                console.log("renewing session now")
                 dispatch(AuthActions.renewSession()).then(() => {
                     setLoading(false)
                 })
-             } else {
-                 setLoading(false)
-             }
+            } else {
+                setLoading(false)
+            }
         } else {
             setLoading(false)
         }

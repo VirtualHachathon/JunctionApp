@@ -131,13 +131,12 @@ RegistrationSchema.post('save', function (doc, next) {
 
     /** If a registration is accepted, create an email notification about it */
     if (this._previousStatus === SOFT_ACCEPTED && this.status === ACCEPTED) {
-        console.log("sendin accept emails...")
-         EmailTaskController.createAcceptedTask(doc.user, doc.event, true)
+        // EmailTaskController.createAcceptedTask(doc.user, doc.event, true)
     }
 
     /** If a registration is rejected, create an email notification about it */
     if (this._previousStatus === SOFT_REJECTED && this.status === REJECTED) {
-         EmailTaskController.createRejectedTask(doc.user, doc.event, true)
+        // EmailTaskController.createRejectedTask(doc.user, doc.event, true)
     }
 
     if (!this._previousGrant && this.travelGrant === 0) {

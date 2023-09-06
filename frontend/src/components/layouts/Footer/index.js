@@ -77,6 +77,8 @@ const Footer = props => {
                     </ExternalLink>
                     <Divider size={1} />
                 </div>
+                
+                {/*
                 <div className={classes.copyright}>
                     <Divider size={1} />
                     <span className={classes.copyright}>
@@ -103,6 +105,7 @@ const Footer = props => {
                     </div>
                     <Divider size={1} />
                 </div>
+                */}
             </div>
         </div>
     )

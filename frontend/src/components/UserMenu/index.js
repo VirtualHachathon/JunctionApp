@@ -111,12 +111,15 @@ export default () => {
                                     />
                                 </ListItem>
                             </Grid>
+                            
+                            {/*
                             <Grid item xs={12}>
                                 <Divider variant="middle" />
                             </Grid>
                             <Grid item xs={6}>
                                 <LanguageMenu />
                             </Grid>
+                            */}
                         </Grid>
                     </Box>
                 </Popover>
@@ -135,7 +138,7 @@ export default () => {
 
         // if (hasOrganiserAccess) {
         items.push({
-            label: 'Create Event',
+            label: 'Create/Manage Event',
             onClick: () => dispatch(push('/organise')),
         })
         // }
@@ -227,13 +230,15 @@ export default () => {
                         </Grid>
                         {renderEventItems()}
                         {renderOtherItems()}
-
+                        
+                        {/*
                         <Grid item xs={12}>
                             <Divider variant="middle" />
                         </Grid>
                         <Grid item xs={6}>
                             <LanguageMenu />
                         </Grid>
+                        */}
                     </Grid>
                 </Box>
             </Popover>

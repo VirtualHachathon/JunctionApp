@@ -46,7 +46,6 @@ const eventQuery = gql`
                 }
             }
             customQuestions {
-                conditional
                 label
                 name
                 description
@@ -140,7 +139,6 @@ const registrationQuery = gql`
                 needsTravelGrant
                 needsVisa
                 countryOfTravel
-                participationType
                 linkedin
                 github
                 curriculumVitae

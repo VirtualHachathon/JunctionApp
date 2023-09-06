@@ -351,7 +351,8 @@ const ProjectDetail = ({
                                 </Typography>
                             </Box>
                         )}
-
+                        
+                        {/*
                         {project.demo ? (
                             <Box mb={3}>
                                 <Typography
@@ -381,6 +382,8 @@ const ProjectDetail = ({
                                 </Typography>
                             </Box>
                         )}
+                        */}
+                        
                         {!project.sourcePublic ? (
                             <Box mb={3}>
                                 <Typography

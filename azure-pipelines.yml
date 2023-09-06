@@ -3,7 +3,8 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
-trigger: none
+trigger:
+- einoSTAG
 
 pool:
   vmImage: ubuntu-latest
@@ -14,124 +15,108 @@ steps:
     versionSpec: '12.20.1'
   displayName: 'Install Node.js'
 
-
-
-#EUROPE SETUP
-
-#- script: |
- #   npm install
-  #displayName: 'npm install'
+- script: |
+    npm install
+  displayName: 'npm install'
 
 - script: ls -R
   displayName: 'ls'
 
 - task: DownloadSecureFile@1
-  displayName: 'download EU backendend'
+  displayName: 'download backendend'
   inputs:
-    secureFile: 'BACKEND_ENV_FILE_EU' # string. Required. Secure File. 
+    secureFile: 'BACKEND_ENV_FILE' # string. Required. Secure File. 
 
 - task: CopyFiles@2
-  displayName: 'copy EU backendend'
+  displayName: 'copy backendend'
   inputs:
     SourceFolder: '$(Agent.TempDirectory)'
-    Contents: BACKEND_ENV_FILE_EU
+    Contents: BACKEND_ENV_FILE
     TargetFolder: './backend'
 
-- script: mv ./backend/BACKEND_ENV_FILE_EU ./backend/.env
-  displayName: 'rename eu .env'
+- script: mv ./backend/BACKEND_ENV_FILE ./backend/.env
+  displayName: 'rename'
 - task: DownloadSecureFile@1
-  displayName: 'download eu frontend'
+  displayName: 'download frontend'
   inputs:
-    secureFile: 'FRONTEND_ENV_FILE_EU' # string. Required. Secure File. 
+    secureFile: 'FRONTEND_ENV_FILE' # string. Required. Secure File. 
 
 - task: CopyFiles@2
-  displayName: 'copy eu frontend'
+  displayName: 'copy frontend'
   inputs:
     SourceFolder: '$(Agent.TempDirectory)'
-    Contents: FRONTEND_ENV_FILE_EU
+    Contents: FRONTEND_ENV_FILE
     TargetFolder: './frontend'
 
-# - script: ls frontend -a
-#   displayName: 'ls'
+- script: ls frontend -a
+  displayName: 'ls'
 
-- script: mv ./frontend/FRONTEND_ENV_FILE_EU ./frontend/.env
-  displayName: 'rename eu .env'
+- script: mv ./frontend/FRONTEND_ENV_FILE ./frontend/.env
+  displayName: 'rename'
 
-# - script: ls -a ./frontend
-#   displayName: 'ls'
+- script: ls -a ./frontend
+  displayName: 'ls'
 
-# - script: cat ./frontend/.env
-#   displayName: 'cat'
+- script: cat ./frontend/.env
+  displayName: 'cat'
 
-# - script: |
-#     npm install
-#   displayName: 'install frontend'
 
-# - script: |
-#     cd frontend && npm install
-#   displayName: 'npm setup front'
 
-  
-# - script: |
-#     rm -rf ./backend/build && cd frontend && npm run build && cp -r ./build ../backend/build
-#   displayName: 'npm build front'
+- script: |
+    npm run build
+  displayName: 'npm build'
 
-# - script: rm -rf ./frontend/node_modules
-#   displayName: 'rm frontend node_modules'
+- script: ls -R
+  displayName: 'ls'
 
-# - script: ls -R
-#   displayName: 'ls'
-
-- task: SSH@0
-  inputs:
-    sshEndpoint: 'junctionapp_test'
-    runOptions: 'inline' 
-    inline: |
-        export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-        nvm use 12.20.1
-        node -v
-        cd build
-        npm install
-        npm run build
-        pm2 restart index
-        sudo systemctl restart nginx
-    continueOnError: true
-    #&& npm install && npm run build && pm2 restart && sudo systemctl restart nginx
-    #interpreterCommand: '/home/newadmin/build'
-    #interactiveSession: true
-    
 - task: CopyFilesOverSSH@0
   inputs:
-     sshEndpoint: 'junctionapp_test'
-     sourceFolder: '.'
-     contents: '**' 
-     targetFolder: '/home/azurejunction/build'
-   # Advanced
-     #isWindowsOnTarget: false # boolean. Target machine running Windows. Default: false.
-     cleanTargetFolder: true 
-     #cleanHiddenFilesInTarget: false # boolean. Optional. Use when cleanTargetFolder = true. Remove hidden files in target folder. Default: false.
-     #readyTimeout: '20000' 
-     overwrite: true 
-     #failOnEmptySource: false # boolean. Fail if no files found to copy. Default: false.
-     #flattenFolders: false # boolean. Flatten folders. Default: false.
+      sshEndpoint: 'newadmin_junctionappeurope'
+      sourceFolder: './backend/build'
+      contents: '**' 
+      targetFolder: '/home/newadmin/build'
+    # Advanced
+      #isWindowsOnTarget: false # boolean. Target machine running Windows. Default: false.
+      cleanTargetFolder: true 
+      #cleanHiddenFilesInTarget: false # boolean. Optional. Use when cleanTargetFolder = true. Remove hidden files in target folder. Default: false.
+      #readyTimeout: '20000' 
+      overwrite: true 
+      #failOnEmptySource: false # boolean. Fail if no files found to copy. Default: false.
+      #flattenFolders: false # boolean. Flatten folders. Default: false.
 
-- task: SSH@0
+- task: CopyFilesOverSSH@0
   inputs:
-    sshEndpoint: 'junctionapp_test'
-    runOptions: 'inline' 
-    inline: |
-        export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-        nvm use 12.20.1
-        node -v
-        cd build
-        npm install
-        npm run build
-        pm2 restart index
-        sudo systemctl restart nginx
-    continueOnError: true
-    #&& npm install && npm run build && pm2 restart && sudo systemctl restart nginx
-    #interpreterCommand: '/home/newadmin/build'
-    #interactiveSession: true
+      sshEndpoint: 'newadmin_junctionappasia'
+      sourceFolder: './backend/build'
+      contents: '**' 
+      targetFolder: '/home/newadmin/build'
+    # Advanced
+      #isWindowsOnTarget: false # boolean. Target machine running Windows. Default: false.
+      cleanTargetFolder: true 
+      #cleanHiddenFilesInTarget: false # boolean. Optional. Use when cleanTargetFolder = true. Remove hidden files in target folder. Default: false.
+      #readyTimeout: '20000' 
+      overwrite: true 
+      #failOnEmptySource: false # boolean. Fail if no files found to copy. Default: false.
+      #flattenFolders: false # boolean. Flatten folders. Default: false.
+      
+- task: CopyFilesOverSSH@0
+  inputs:
+      sshEndpoint: 'newadmin_junctionappafrica'
+      sourceFolder: './backend/build'
+      contents: '**' 
+      targetFolder: '/home/newadmin/build'
+    # Advanced
+      #isWindowsOnTarget: false # boolean. Target machine running Windows. Default: false.
+      cleanTargetFolder: true 
+      #cleanHiddenFilesInTarget: false # boolean. Optional. Use when cleanTargetFolder = true. Remove hidden files in target folder. Default: false.
+      #readyTimeout: '20000' 
+      overwrite: true 
+      #failOnEmptySource: false # boolean. Fail if no files found to copy. Default: false.
+      #flattenFolders: false # boolean. Flatten folders. Default: false.
 
+#- task: SSH@0
+ # inputs:
+  #  sshEndpoint: 'newadmin_junctionappeurope'
+   # runOptions: 'commands' 
+    #commands: sudo systemctl reload nginx
+    #interactiveSession: true

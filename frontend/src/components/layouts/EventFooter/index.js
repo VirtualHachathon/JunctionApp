@@ -90,6 +90,7 @@ const EventFooter = props => {
     const { t } = useTranslation()
     return (
         <div className={classes.wrapper}>
+            {/*
             <Grid container className={classes.innerSecond}>
                 <Grid item xs={12} md={6} xl={6} className={classes.align}>
                     <Typography variant="h4" className={classes.white}>
@@ -111,7 +112,7 @@ const EventFooter = props => {
                         strong
                         onClick={() => dispatch(push('/pricing'))}
                     >
-                        {/* {t('Contact_us_')} */}
+                        {t('Contact_us_')}
                         Pricing
                     </Button>
                 </Grid>
@@ -133,6 +134,7 @@ const EventFooter = props => {
                 </Hidden>
             </Grid>
             <Divider size={5} />
+            */}
 
             <div className={classes.inner}>
                 <div className={classes.links}>
@@ -153,6 +155,8 @@ const EventFooter = props => {
                     </ExternalLink>
                     <Divider size={1} />
                 </div>
+                
+                {/*
                 <div className={classes.copyright}>
                     <Divider size={1} />
                     <span className={classes.copyright}>
@@ -179,6 +183,7 @@ const EventFooter = props => {
                     </div>
                     <Divider size={1} />
                 </div>
+                */}
             </div>
         </div>
     )

@@ -27,7 +27,7 @@ app.use(
 )
 
 /* Force SSL Redirect in production */
-//app.use(sslRedirect(['production'], 301))
+app.use(sslRedirect(['production'], 301))
 
 /* Enable body-parser */
 app.use(bodyParser.json())
@@ -90,8 +90,7 @@ throng({
 
         httpServer.listen(PORT, () => {
             logger.info(
-                `Worker ${process.pid} started, listening on port ${httpServer.address().port}`,
-                
+                `Worker ${process.pid} started, listening on port ${PORT}`,
             )
         })
     },

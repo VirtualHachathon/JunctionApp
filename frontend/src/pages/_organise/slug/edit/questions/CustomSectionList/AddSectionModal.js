@@ -37,18 +37,13 @@ export default ({
     useEffect(() => {
         if (editing) {
             setData(editing)
-
-            setIsConditional(!!editing.conditional) // This prevents the conditional question from toggle to always visible
+            setIsConditional(typeof editing.conditional !== undefined)
         }
     }, [editing])
 
     const reset = () => {
         setData({})
-
-        // this prevent the conditional to be reset after saving section or editing
-        if (!editing) {
-            setIsConditional(false)
-        }
+        setIsConditional(false)
     }
 
     const validate = () => {
@@ -164,12 +159,11 @@ export default ({
                 />
                 <Box p={1} />
                 <Typography variant="body1" className={classes.label}>
-                    Conditional question
+                    Visibility
                 </Typography>
                 <Typography variant="caption" width="100%" gutterBottom>
-                    - Off: The section will always be visible <br />- On: The
-                    section will only be visible when the conditional question
-                    is answered with yes/no
+                    Do you want this section to be visible always, or have the
+                    user answer a yes/no question to expand it?
                 </Typography>
                 <Box width="100%">
                     <FormControlLabel
@@ -190,8 +184,9 @@ export default ({
                             Conditional question
                         </Typography>
                         <Typography width="100%" variant="caption" gutterBottom>
-                            Type here your yes/no question. If yes, the section
-                            question will be shown
+                            What is the yes/no question you want to ask? When
+                            choosing yes, the questions in this section will be
+                            shown
                         </Typography>
                         <TextInput
                             placeholder="Do you want to also apply to My Awesome Side Event?"

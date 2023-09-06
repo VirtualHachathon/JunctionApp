@@ -32,7 +32,6 @@ export default () => {
     const [showFavorites, toggleFavorites] = useToggle(false)
 
     useEffect(() => {
-        console.log("accessing recruitment", idTokenData)
         if (!idTokenData) {
             throw new Error(t('Invalid_token_'))
         }

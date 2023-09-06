@@ -8,3 +8,5 @@ docker-compose.yml
 *.env.example
 azure-pipelines-1.yml
 azure-pipelines.yml
+auth0/config.prod.json
+backend/common/services/google-calendar/google-calendar-vh.js

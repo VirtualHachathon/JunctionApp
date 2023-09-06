@@ -81,6 +81,8 @@ export default () => {
                 </Box>
             </Container>
             <Divider size={20} />
+            
+            {/*
             <Container center small>
                 <Grid>
                     <Image
@@ -149,6 +151,8 @@ export default () => {
                 </Typography>
             </Container>
             <Divider size={20} />
+            */}
+            
             <Container center>
                 <Typography variant="h4" align="center">
                     {t('Join_hackerpack_')}
@@ -162,6 +166,8 @@ export default () => {
                     {t('To_hackerpack_')}
                 </Button>
             </Container>
+            
+            {/*
             <Divider size={20} />
             <Container center>
                 <img
@@ -169,6 +175,7 @@ export default () => {
                     style={{ width: '10em' }}
                 />
             </Container>
+            */}
         </PageWrapper>
     )
 }

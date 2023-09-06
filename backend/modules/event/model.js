@@ -7,7 +7,6 @@ const {
 } = require('@hackjunction/shared')
 // const AddressSchema = require('@hackjunction/shared/schemas/Address')
 const ChallengeSchema = require('@hackjunction/shared/schemas/Challenge')
-const HackerpackSchema = require('@hackjunction/shared/schemas/Hackerpack')
 const CloudinaryImageSchema = require('@hackjunction/shared/schemas/CloudinaryImage')
 const Certificate = require('@hackjunction/shared/schemas/Certificate')
 const RegistrationSectionSchema = require('@hackjunction/shared/schemas/RegistrationSection')
@@ -137,11 +136,6 @@ const EventSchema = new mongoose.Schema({
             'must have at least one item if challenges are enabled',
         ],
     },
-    hackerpacksEnabled: false,
-    hackerpacks: {
-        type: [HackerpackSchema.mongoose],
-        default: [],
-    },
     allowProjectSubmissionsPerChallenge: {
         type: Boolean,
         default: false,
@@ -257,12 +251,12 @@ const EventSchema = new mongoose.Schema({
     },
     demoLabel: {
         type: String,
-        default: 'Demo URL',
+        default: 'Roadmap URL',
     },
     demoHint: {
         type: String,
         default:
-            'Add the link of the working version of your project. Depending on the event, this could be a link to an API, a link to file or a presentation. Make sure the link is accessible for humans, as well as machines',
+            'Make sure the link is accessible for humans, as well as machines',
     },
     demoPlaceholder: {
         type: String,
@@ -276,85 +270,6 @@ const EventSchema = new mongoose.Schema({
     },
     eventNewsletter: {
         type: String,
-    },
-    emailConfig: {
-        senderEmail: {
-            type: String,
-            default: '',
-            trim: true,
-            validate: {
-                validator: function (v) {
-                    return /\S+@\S+\.\S+/.test(v)
-                },
-                message: (props) => `${props.value} is not a valid email address!`
-            },
-        },
-        senderName: {
-            type: String,
-            default: '',
-            trim: true,
-            maxLength: 100,
-        },
-        acceptanceEmail: {
-            title: {
-                type: String,
-                default: '',
-                trim: true,
-                maxLength: 100,
-            },
-            subtitle: {
-                type: String,
-                default: '',
-                trim: true,
-                maxLength: 100,
-            },
-            body: {
-                type: String,
-                default: '',
-                trim: true,
-                maxLength: 5000,
-            },
-        },
-        rejectionEmail: {
-            title: {
-                type: String,
-                default: '',
-                trim: true,
-                maxLength: 100,
-            },
-            subtitle: {
-                type: String,
-                default: '',
-                trim: true,
-                maxLength: 100,
-            },
-            body: {
-                type: String,
-                default: '',
-                trim: true,
-                maxLength: 5000,
-            },
-        },
-        registrationEmail: {
-            title: {
-                type: String,
-                default: '',
-                trim: true,
-                maxLength: 100,
-            },
-            subtitle: {
-                type: String,
-                default: '',
-                trim: true,
-                maxLength: 100,
-            },
-            body: {
-                type: String,
-                default: '',
-                trim: true,
-                maxLength: 5000,
-            },
-        },
     },
     frontPagePriority: {
         type: Number,
@@ -373,7 +288,7 @@ const EventSchema = new mongoose.Schema({
     meetingRooms: {
         type: [MeetingRoomSchema.mongoose],
         default: [],
-        /* validate: [
+        /*validate: [
             function (val) {
                 if (!this.meetingsEnabled) {
                     return !val.length > 0
@@ -381,7 +296,7 @@ const EventSchema = new mongoose.Schema({
                 return true
             },
             'cant have meetingrooms if meetings are not enabled',
-        ], */
+        ],*/
     },
 })
 

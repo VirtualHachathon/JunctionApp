@@ -34,12 +34,13 @@ const settings = {
     ID_TOKEN_NAMESPACE: {
         required: true,
         value:
-            process.env.REACT_APP_ID_TOKEN_NAMESPACE ||  'https://eu.junctionplatform.com/',
+            process.env.REACT_APP_ID_TOKEN_NAMESPACE ||
+            'https://app.hackjunction.com/',
     },
     IS_DEBUG: {
-        default: process.env.REACT_APP_IS_DEBUG === 'true',
+        default: process.env.NODE_ENV === 'development',
         required: true,
-        value: process.env.REACT_APP_IS_DEBUG === 'true',
+        value: process.env.IS_DEBUG,
     },
     LOGO_DARK_URL: {
         required: true,

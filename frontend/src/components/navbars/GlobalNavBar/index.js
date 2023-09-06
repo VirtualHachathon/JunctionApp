@@ -8,7 +8,7 @@ import config from 'constants/config'
 const useStyles = makeStyles(theme => ({
     wrapper: {
         width: '100%',
-        height: '60px',
+        height: '70px',
         background: 'white',
         padding: theme.spacing(0, 2),
     },
@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
         height: '100%',
     },
     wordmark: {
-        height: '20px',
+        height: '55px',
     },
 }))
 

@@ -56,20 +56,11 @@ const buildProjectSchema = event => {
             .label('Challenges')
     }
 
-    if (event.hackerpacksEnabled) {
-        schema.hackerpacks = yup.array().of(
-            yup
-                .string()
-                .oneOf(event.hackerpacks.map(hackerpack => hackerpack.slug))
-                .ensure()
-                .label('Hackerpacks'),
-        )
-    }
-
     if (event.eventType === EventTypes.physical.id) {
         schema.location = yup
             .string()
             .max(100)
+            .required()
             .label('Table location')
     }
 

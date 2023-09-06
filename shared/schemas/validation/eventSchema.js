@@ -9,18 +9,28 @@ const cloudinaryImage = yup
     .default(null)
     .nullable()
 
-const address = yup
-    .object()
-    .shape({
-        country: yup.string().required(),
-        addressLine: yup.string().required(),
-        addressLine2: yup.string().required(),
-        city: yup.string().required(),
-        postalCode: yup.string().required(),
-        venueName: yup.string(),
-    })
-    .default(null)
-    .nullable()
+const address = yup.object().shape({
+//     country: yup.string().required(),
+//     addressLine: yup.string().required(),
+//     addressLine2: yup.string(),
+//     city: yup.string().required(),
+//     postalCode: yup
+//         .string()
+//         .matches(/^[0-9]+$/, 'Invalid zipcode')
+//         .min(5, 'Invalid zipcode')
+//         .max(5, 'Invalid zipcode')
+//         .required(),
+    country: yup.string(),
+    addressLine: yup.string(),
+    addressLine2: yup.string(),
+    city: yup.string(),
+    postalCode: yup
+        .string()
+        .matches(/^[0-9]+$/, 'Invalid zipcode')
+        .min(5, 'Invalid zipcode')
+        .max(5, 'Invalid zipcode'),
+    venueName: yup.string(),
+})
 
 const track = yup.object().shape({
     name: yup.string().required(),
@@ -41,16 +51,6 @@ const challenge = yup.object().shape({
     criteria: yup.string(),
     companyInfo: yup.string(),
     logo: cloudinaryImage,
-})
-
-const hackerpack = yup.object().shape({
-    name: yup.string().required(),
-    slug: yup.string(),
-    partner: yup.string(),
-    title: yup.string(),
-    description: yup.string(),
-    logo: cloudinaryImage,
-    link: yup.string(),
 })
 
 const travelGrantConfig = yup.object().shape({
@@ -120,20 +120,6 @@ const meetingRoom = yup.object().shape({
     ),
 })
 
-const emailTemplate = yup.object().shape({
-    title: yup.string().max(100, 'Must be less than 100 characters'),
-    subtitle: yup.string().max(100, 'Must be less than 100 characters'),
-    body: yup.string().max(5000, 'Must be less than 5000 characters'),
-})
-
-const emailConfig = yup.object().shape({
-    senderEmail: yup.string().email('Must be a valid email'),
-    senderName: yup.string().max(100, 'Must be less than 100 characters'),
-    acceptanceEmail: emailTemplate,
-    rejectionEmail: emailTemplate,
-    registrationEmail: emailTemplate,
-})
-
 export default yup.object().shape({
     name: yup.string().required('Event name is required'),
     slug: yup.string().required('Event must have a unique slug'),
@@ -146,13 +132,11 @@ export default yup.object().shape({
     reviewingStartTime: yup.date(),
     reviewingEndTime: yup.date(),
     finalsActive: yup.boolean(),
-    eventLocation: address,
+    eventLocation: address.notRequired().nullable(true),
     tracksEnabled: yup.boolean(),
     tracks: yup.array().of(track),
     challengesEnabled: yup.boolean(),
     challenges: yup.array().of(challenge).min(0),
-    hackerpacksEnabled: yup.boolean(),
-    hackerpacks: yup.array().of(hackerpack).min(0),
     travelGrantConfig,
     reviewMethod: yup.string(),
     overallReviewMethod: yup.string(),
@@ -175,7 +159,6 @@ export default yup.object().shape({
     eventPrivacy: yup.string(),
     eventTerms: yup.string(),
     eventTimeline,
-    emailConfig,
     demoPlaceholder: yup.string(),
     metaDescription: yup.string(),
     finalists: yup.array().of(yup.string()),

@@ -10,28 +10,28 @@ const Countries = require('../constants/countries')
 const mongooseSchema = new mongoose.Schema({
     country: {
         type: String,
-        required: true,
-        validate: {
-            validator(v) {
-                return Countries.asArrayOfName.indexOf(v) !== -1
-            },
-            message: props => `${props.value} is not a valid country`,
-        },
+//         required: true,
+//         validate: {
+//             validator(v) {
+//                 return Countries.asArrayOfName.indexOf(v) !== -1
+//             },
+//             message: props => `${props.value} is not a valid country`,
+//         },
     },
     addressLine: {
         type: String,
-        required: true,
+//         required: true,
     },
     addressLine2: {
         type: String,
     },
     city: {
         type: String,
-        required: true,
+//         required: true,
     },
     postalCode: {
         type: String,
-        required: true,
+//         required: true,
     },
     venueName: {
         type: String,

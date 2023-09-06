@@ -23,11 +23,8 @@ controller.createTask = (userId, eventId, type, params, schedule) => {
     if (params) {
         task.params = params
     }
-    console.log(task)
     return task.save().catch(err => {
-        console.log("err", err)
         if (err.code === 11000) {
-            console.log("err", Promise.resolve())
             return Promise.resolve()
         }
         // For other types of errors, we'll want to throw the error normally
@@ -36,15 +33,12 @@ controller.createTask = (userId, eventId, type, params, schedule) => {
 }
 
 controller.createAcceptedTask = async (userId, eventId, deliverNow = false) => {
-    console.log("createAcceptedTask, userId: ", userId, "eventId: ", eventId, "deliverNow: ", deliverNow)
     const task = await controller.createTask(
         userId,
         eventId,
         EmailTypes.registrationAccepted,
     )
-    console.log("sending task", task)
     if (deliverNow) {
-
         return controller.deliverEmailTask(task)
     }
     return task
@@ -82,7 +76,6 @@ controller.createTravelGrantAcceptedTask = async (
     registration,
     deliverNow = false,
 ) => {
-
     const task = await controller.createTask(
         registration.user,
         registration.event,
@@ -186,14 +179,12 @@ controller.createGenericTask = async (
 }
 
 controller.deliverEmailTask = async task => {
-    console.log("getting user and event", task)
     const [user, event] = await Promise.all([
         UserController.getUserProfile(task.user),
         EventController.getEventById(task.event),
     ])
     switch (task.type) {
         case EmailTypes.registrationAccepted: {
-            console.log("acceptance email", event, user)
             if (event.name == "HackCodeX") {
                 break
                 //remember to remove this after hackCodeX eevnt
@@ -260,28 +251,8 @@ controller.deliverEmailTask = async task => {
     return task.save()
 }
 
-controller.sendPreviewEmail = async (to, msgParams, from = {}, eventSlug) => {
-    // Fetch the userId using the provided email
-    const userId = await UserController.getUserIdByEmail(to)
-
-    // Fetch the required 'event' and 'user' data using the eventSlug and userId
-    const [event, user] = await Promise.all([
-        EventController.getEventBySlug(eventSlug),
-        UserController.getUserProfile(userId),
-    ])
-
-    // Check if user is available.
-    if (!user) {
-        throw new Error('User data not found.')
-    }
-
-    // Check if event is available.
-    if (!event) {
-        throw new Error('Event data not found.')
-    }
-
-
-    return SendgridService.sendGenericEmail(to, msgParams, from, event, user).catch(() => { })
+controller.sendPreviewEmail = async (to, msgParams) => {
+    return SendgridService.sendGenericEmail(to, msgParams).catch(() => { })
 }
 
 controller.sendContactEmail = async msgParams => {

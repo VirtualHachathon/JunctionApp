@@ -7,11 +7,9 @@ const FilterValues = {
     GENDER: 'GENDER',
     NATIONALITY: 'NATIONALITY',
     COUNTRY: 'COUNTRY',
-    PARTICIPATION_TYPE: 'PARTICIPATION_TYPE',
     LANGUAGE: 'LANGUAGE',
     STATUS: 'STATUS',
     TAG: 'TAG',
-    CUSTOM_QUESTION: 'CUSTOM_QUESTION',
 }
 
 module.exports = FilterValues

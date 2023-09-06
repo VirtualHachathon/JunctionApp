@@ -83,9 +83,7 @@ function differentYear(event) {
         currentYear.diff(event.registrationStartTime, 'years') ||
         currentYear.diff(event.registrationEndTime, 'years') ||
         currentYear.diff(event.startTime, 'years') ||
-        currentYear.diff(event.endTime, 'years') ||
-        currentYear.diff(event.submissionStartTime, 'years') ||
-        currentYear.diff(event.reviewStartTime, 'years')
+        currentYear.diff(event.endTime, 'years')
     )
 }
 const EventTimeline = ({ event, textColor, accentColor = undefined }) => {
@@ -106,8 +104,10 @@ const EventTimeline = ({ event, textColor, accentColor = undefined }) => {
                 ? realItems
                 : [
                       {
-                          date: 'No Date',
-                          dateValue: 'No Date',
+                          date: moment(event.registrationStartTime).format(
+                              dateString,
+                          ),
+                          dateValue: moment(event.registrationStartTime).unix(),
                           completed: moment(
                               event.registrationStartTime,
                           ).isBefore(),
@@ -115,35 +115,14 @@ const EventTimeline = ({ event, textColor, accentColor = undefined }) => {
                           active: true,
                       },
                       {
-                          date: 'No Date',
-                          dateValue: 'No Date',
+                          date: moment(event.registrationEndTime).format(
+                              dateString,
+                          ),
+                          dateValue: moment(event.registrationEndTime).unix(),
                           completed: moment(
                               event.registrationEndTime,
                           ).isBefore(),
                           title: 'Application period ends',
-                          active: true,
-                      },
-                      {
-                          date: 'No Date',
-                          dateValue: 'No Date',
-                          completed: moment(event.endTime).isBefore(),
-                          title: 'Start of event',
-                          active: true,
-                      },
-                      {
-                          date: 'No Date',
-                          dateValue: 'No Date',
-                          completed: moment(
-                              event.submissionStartTime,
-                          ).isBefore(),
-                          title: 'Submission period',
-                          active: true,
-                      },
-                      {
-                          date: 'No Date',
-                          dateValue: 'No Date',
-                          completed: moment(event.reviewStartTime).isBefore(),
-                          title: 'Review period',
                           active: true,
                       },
                   ]
@@ -171,10 +150,13 @@ const EventTimeline = ({ event, textColor, accentColor = undefined }) => {
                 })
             } else {
                 items.push({
-                    date: 'No Date',
-                    dateValue: 'No Date',
-                    completed: moment(event.endTime),
-                    title: 'End of event',
+                    date: MiscUtils.formatPDFDateInterval(
+                        event.startTime,
+                        event.endTime,
+                    ),
+                    dateValue: moment(event.startTime).unix(),
+                    completed: moment(event.endTime).isBefore(),
+                    title: event.name,
                     active: true,
                 })
             }
@@ -191,8 +173,6 @@ const EventTimeline = ({ event, textColor, accentColor = undefined }) => {
         event.registrationEndTime,
         event.registrationStartTime,
         event.startTime,
-        event.submissionStartTime,
-        event.reviewStartTime,
     ])
 
     return (
