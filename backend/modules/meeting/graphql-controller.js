@@ -1,4 +1,3 @@
-
 const { Auth } = require('@hackjunction/shared')
 const DataLoader = require('dataloader')
 const Meeting = require('./model')
@@ -62,7 +61,7 @@ class MeetingContorller {
             overrideChecks ||
             PermissionUtils.userHasPermission(
                 requestingUser,
-                Auth.Permissions.ACCESS_RECRUITMENT
+                Auth.Permissions.ACCESS_RECRUITMENT,
                 //Auth.Permissions.MANAGE_EVENT,
                 // TODO fix this to check for approriate right, ie partner rights
             )
@@ -201,9 +200,8 @@ class MeetingContorller {
         const meetingToBook = await Meeting.findOne({ _id: meetingId })
         // return null if meeting already has attendees (already booked)
         if (!meetingToBook || meetingToBook.attendees.length !== 0) return null
-        const attendeeProfiles = await UsersController.getUserProfiles(
-            attendees,
-        )
+        const attendeeProfiles =
+            await UsersController.getUserProfiles(attendees)
 
         let roomBookedSuccessfully = false
         if (location !== '' && location !== 'ONLINE') {
@@ -220,8 +218,8 @@ class MeetingContorller {
             location === 'ONLINE'
                 ? 'ONLINE'
                 : roomBookedSuccessfully
-                    ? location
-                    : ''
+                ? location
+                : ''
 
         const googleEvent = {
             title: meetingToBook.title,

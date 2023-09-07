@@ -13,7 +13,7 @@ const jobs = {
             generateEventResults(),
             null,
             runImmediately,
-            'Europe/Helsinki'
+            'Europe/Helsinki',
         ),
 }
 

@@ -81,7 +81,7 @@ export default () => {
                 </Box>
             </Container>
             <Divider size={20} />
-            
+
             {/*
             <Container center small>
                 <Grid>
@@ -152,7 +152,7 @@ export default () => {
             </Container>
             <Divider size={20} />
             */}
-            
+
             <Container center>
                 <Typography variant="h4" align="center">
                     {t('Join_hackerpack_')}
@@ -166,7 +166,7 @@ export default () => {
                     {t('To_hackerpack_')}
                 </Button>
             </Container>
-            
+
             {/*
             <Divider size={20} />
             <Container center>

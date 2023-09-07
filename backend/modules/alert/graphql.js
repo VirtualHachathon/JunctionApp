@@ -15,12 +15,10 @@ const Redis = require('ioredis')
 //const client = new Redis("rediss://default:JSVhlHFiXTnFo1Z1IVok05TOQqccA2qB@redis-11912.c226.eu-west-1-3.ec2.cloud.redislabs.com:11912");
 //console.log(client,"##")
 
-
 const pubsub = new RedisPubSub({
     publisher: new Redis(process.env.REDISCLOUD_URL),
-    subscriber: new Redis(process.env.REDISCLOUD_URL)
+    subscriber: new Redis(process.env.REDISCLOUD_URL),
 })
-
 
 const AlertInput = new GraphQLInputObjectType({
     name: 'AlertInput',
@@ -137,7 +135,7 @@ const Resolvers = {
                 () => {
                     return pubsub.asyncIterator('ALERT_SENT')
                 },
-                async ({newAlert}, { eventId, slug }, { user }) => {
+                async ({ newAlert }, { eventId, slug }, { user }) => {
                     // Check authentication from context
                     const userId = user ? user.sub : null
                     if (!userId) {

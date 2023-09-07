@@ -35,7 +35,7 @@ export default () => {
         if (idToken && event?.slug) {
             refreshTokens()
         }
-    }, [ event?.slug,idToken])
+    }, [event?.slug, idToken])
 
     const refreshTokens = useCallback(() => {
         if (idToken && event?.slug) {
@@ -45,7 +45,7 @@ export default () => {
                 },
             )
         }
-    }, [event?.slug,idToken])
+    }, [event?.slug, idToken])
 
     const handleSubmit = useCallback(
         (values, formikBag) => {

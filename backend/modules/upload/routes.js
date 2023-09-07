@@ -198,7 +198,6 @@ router.post(
     },
 )
 
-
 /**
  * Upload icon for a hackerpack partner
  */

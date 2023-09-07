@@ -38,12 +38,12 @@ GavelHelper.generateTrackPlacementAchievements = async event => {
                         event,
                         project.project,
                         slug,
-                        index + 1
+                        index + 1,
                     )
                 },
                 {
                     concurrency: 5,
-                }
+                },
             ).then(achievements => {
                 const flat = _.flatten(achievements)
                 console.log('ACHIEVEMENTS', flat.length)
@@ -52,7 +52,7 @@ GavelHelper.generateTrackPlacementAchievements = async event => {
         },
         {
             concurrency: 1,
-        }
+        },
     ).then(result => {
         return _.flatten(result)
     })
@@ -77,12 +77,12 @@ GavelHelper.generateOverallPlacementAchievements = async event => {
                 return Achievement.createOverallPlacementAchievements(
                     event,
                     project.project,
-                    index + 1
+                    index + 1,
                 )
             },
             {
                 concurrency: 5,
-            }
+            },
         )
     }
 }

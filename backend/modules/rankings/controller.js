@@ -162,9 +162,8 @@ controller.generateOverallResults = async event => {
         /** Generate results based on finalist review method */
         switch (event.overallReviewMethod) {
             case OverallReviewingMethods.finalsPublicVoting.id: {
-                const voteTotals = await WinnerVoteController.getVotesForEvent(
-                    event,
-                )
+                const voteTotals =
+                    await WinnerVoteController.getVotesForEvent(event)
                 return voteTotals.map(({ project }) => project)
             }
             case OverallReviewingMethods.finalsManualSelection.id: {

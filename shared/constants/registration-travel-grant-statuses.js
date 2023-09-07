@@ -37,6 +37,6 @@ module.exports = {
     ids: Object.keys(RegistrationTravelGrantStatuses),
     asObject: RegistrationTravelGrantStatuses,
     asArray: Object.keys(RegistrationTravelGrantStatuses).map(
-        status => RegistrationTravelGrantStatuses[status]
+        status => RegistrationTravelGrantStatuses[status],
     ),
 }

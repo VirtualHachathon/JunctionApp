@@ -19,62 +19,17 @@ export default () => {
     return (
         <>
             <Helmet>
-                <title>Junction App || Dashboard</title>
-                <meta
-                    name="keywords"
-                    content={`Redeem hackepack, junction, hackjunction, hackerpack`}
-                />
-                <meta name="title" content="Junction App || Hackerpack" />
-                <meta
-                    property="og:title"
-                    content="Junction App || Hackerpack"
-                />
-
-                <meta
-                    name="twitter:title"
-                    content="Junction App || Hackerpack"
-                />
-                <meta
-                    name="description"
-                    content="Log in to check out Europe's leading hackerpack!"
-                />
-                <meta
-                    property="og:description"
-                    content="Log in to check out Europe's leading hackerpack!"
-                />
-                <meta
-                    name="twitter:description"
-                    content="Log in to check out Europe's leading hackerpack!"
-                />
-
-                <meta name="og:type" content="website" />
-                <meta property="og:image" content={config.SEO_IMAGE_URL} />
-                <meta name="twitter:image" content={config.SEO_IMAGE_URL} />
-                <meta property="og:image:width" content="1200" />
-                <meta property="og:image:height" content="630" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content={config.SEO_TWITTER_HANDLE} />
-                <meta
-                    name="twitter:creator"
-                    content={config.SEO_TWITTER_HANDLE}
-                />
+                <title>Dashboard</title>
             </Helmet>
             <PageHeader
                 heading="Hackerpack"
-                subheading="We want you to be able to fully focus on making your hackathon project as cool as possible! These software provided by our partners will help you unleash your creativity and maximize your learning during our events."
+                subheading="We want you to be able to fully focus on making your hackathon project as cool as possible! The following suggestions will help you unleash your creativity and maximize your learning during the hackathon. Use the roadmap for better undestanding of the learning flow."
             />
             <PageWrapper loading={false}>
                 <Divider variant="middle" />
                 {hackerpack.map(company => (
                     <HackerpackDetail partner={company} redeemable={true} />
                 ))}
-                <Box p={2}>
-                    <Typography color="textSecondary" variant="subtitle1">
-                        Anything you would like to see here in the future?
-                        Contact us at partnerships@hackjunction.com with your
-                        suggestion.
-                    </Typography>
-                </Box>
             </PageWrapper>
         </>
     )

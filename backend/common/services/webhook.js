@@ -10,12 +10,16 @@ const WebhookService = {
         eventId,
     ) => {
         try {
-            const webhooks = await WebhookService._loadEventWebhooks(eventId)
-                .then(hooks => hooks.filter(hook =>
-                    hook.enabled &&
-                    hook.action === triggerAction &&
-                    hook.resource === triggerResource,
-            ))
+            const webhooks = await WebhookService._loadEventWebhooks(
+                eventId,
+            ).then(hooks =>
+                hooks.filter(
+                    hook =>
+                        hook.enabled &&
+                        hook.action === triggerAction &&
+                        hook.resource === triggerResource,
+                ),
+            )
 
             if (!webhooks || !webhooks.length) {
                 return
@@ -24,7 +28,9 @@ const WebhookService = {
             webhooks.forEach(async webhook => {
                 try {
                     await axios.post(webhook.url, triggerData)
-                    logger.info(`Triggered webhook: ${webhook.name}: ${triggerResource}-${triggerAction}-${eventId}`)
+                    logger.info(
+                        `Triggered webhook: ${webhook.name}: ${triggerResource}-${triggerAction}-${eventId}`,
+                    )
                 } catch (e) {
                     logger.error(
                         `Error triggering webhook: ${webhook.name}: ${triggerResource}-${triggerAction}-${eventId}: `,
@@ -33,7 +39,7 @@ const WebhookService = {
                 }
             })
         } catch (e) {
-            console.error(e);
+            console.error(e)
             logger.error(
                 `Error triggering webhooks for ${triggerResource}-${triggerAction}-${eventId}: `,
                 e.message,

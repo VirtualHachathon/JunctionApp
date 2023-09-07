@@ -45,7 +45,9 @@ controller.joinTeam = (eventId, userId, code) => {
     return controller.getTeamByCode(eventId, code).then(team => {
         // TODO HIGH PRIORITY team size defined in event
         if (team.members.length >= process.env.MAX_TEAM_MEMBERS) {
-            throw new ForbiddenError('The limit on the number of members has been reached')
+            throw new ForbiddenError(
+                'The limit on the number of members has been reached',
+            )
         }
         team.members = team.members.concat(userId)
         return team.save()

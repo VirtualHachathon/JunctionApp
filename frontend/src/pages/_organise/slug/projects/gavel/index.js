@@ -72,7 +72,6 @@ export default () => {
                 pRanks['overall'][i]['id'] = p0._id
                 pRanks['overall'][i]['name'] = p0.name
             })
-
         }
         /*RankingsService.getVotes(idToken, event.slug).then(votes => {
 
@@ -100,7 +99,6 @@ export default () => {
 
     return (
         <>
-
             {Object.keys(ProjectRanks).map(trackName => (
                 <TableContainer component={Paper}>
                     <TableBody>
@@ -113,8 +111,7 @@ export default () => {
                         ))}
                     </TableBody>
                 </TableContainer>
-            ))
-            }
+            ))}
         </>
     )
 }

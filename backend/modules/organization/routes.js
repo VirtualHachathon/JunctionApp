@@ -15,21 +15,21 @@ const getOrganizations = asyncHandler(async (req, res) => {
 
 const getOrganization = asyncHandler(async (req, res) => {
     const Organization = await OrganizationController.getOrganizationBySlug(
-        req.params.slug
+        req.params.slug,
     )
     return res.status(200).json(Organization)
 })
 
 const deleteOrganization = asyncHandler(async (req, res) => {
     const Organization = await OrganizationController.deleteOrganization(
-        req.params.slug
+        req.params.slug,
     )
     return res.status(200).json(Organization)
 })
 
 const createOrganization = asyncHandler(async (req, res) => {
     const organization = await OrganizationController.createOrganization(
-        req.body
+        req.body,
     )
     return res.status(201).json(organization)
 })
@@ -37,7 +37,7 @@ const createOrganization = asyncHandler(async (req, res) => {
 const updateOrganization = asyncHandler(async (req, res) => {
     const updatedOrganization = await OrganizationController.updateOrganization(
         req.params.slug,
-        req.body
+        req.body,
     )
     return res.status(200).json(updatedOrganization)
 })

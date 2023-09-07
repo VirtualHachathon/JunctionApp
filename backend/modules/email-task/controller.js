@@ -185,7 +185,7 @@ controller.deliverEmailTask = async task => {
     ])
     switch (task.type) {
         case EmailTypes.registrationAccepted: {
-            if (event.name == "HackCodeX") {
+            if (event.name == 'HackCodeX') {
                 break
                 //remember to remove this after hackCodeX eevnt
             }
@@ -193,7 +193,7 @@ controller.deliverEmailTask = async task => {
             break
         }
         case EmailTypes.registrationRejected: {
-            if (event.name == "HackCodeX") {
+            if (event.name == 'HackCodeX') {
                 break
                 //remember to remove this after hackCodeX eevnt
             }
@@ -201,7 +201,7 @@ controller.deliverEmailTask = async task => {
             break
         }
         case EmailTypes.registrationReceived: {
-            if (event.name == "HackCodeX") {
+            if (event.name == 'HackCodeX') {
                 break
                 //remember to remove this after hackCodeX eevnt
             }
@@ -252,14 +252,14 @@ controller.deliverEmailTask = async task => {
 }
 
 controller.sendPreviewEmail = async (to, msgParams) => {
-    return SendgridService.sendGenericEmail(to, msgParams).catch(() => { })
+    return SendgridService.sendGenericEmail(to, msgParams).catch(() => {})
 }
 
 controller.sendContactEmail = async msgParams => {
     return SendgridService.sendContactEmail(
         global.gConfig.SENDGRID_CONTACT_MAIL,
         msgParams,
-    ).catch(() => { })
+    ).catch(() => {})
 }
 
 controller.sendBulkEmail = async (recipients, msgParams, event, uniqueId) => {

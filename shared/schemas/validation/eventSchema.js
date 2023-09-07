@@ -10,16 +10,16 @@ const cloudinaryImage = yup
     .nullable()
 
 const address = yup.object().shape({
-//     country: yup.string().required(),
-//     addressLine: yup.string().required(),
-//     addressLine2: yup.string(),
-//     city: yup.string().required(),
-//     postalCode: yup
-//         .string()
-//         .matches(/^[0-9]+$/, 'Invalid zipcode')
-//         .min(5, 'Invalid zipcode')
-//         .max(5, 'Invalid zipcode')
-//         .required(),
+    //     country: yup.string().required(),
+    //     addressLine: yup.string().required(),
+    //     addressLine2: yup.string(),
+    //     city: yup.string().required(),
+    //     postalCode: yup
+    //         .string()
+    //         .matches(/^[0-9]+$/, 'Invalid zipcode')
+    //         .min(5, 'Invalid zipcode')
+    //         .max(5, 'Invalid zipcode')
+    //         .required(),
     country: yup.string(),
     addressLine: yup.string(),
     addressLine2: yup.string(),

@@ -88,6 +88,7 @@ export default ({
     const end = new Date(meetingInfo.endTime)
     const startMinutes = start.getMinutes()
     const endMinutes = end.getMinutes()
+    // eslint-disable-next-line no-unused-vars
     const [meetingRooms, loading, error] = getMeetingRooms({
         eventId: eventId,
     })
@@ -119,7 +120,7 @@ export default ({
     const handleRoomChange = event => {
         setRoomSelected(event.target.value)
     }
-    
+
     const handlePartiComChange = event => {
         setPartiComSelected(event.target.value)
     }
@@ -269,32 +270,29 @@ export default ({
                                 No rooms available for selected time slot {':('}
                             </p>
                         ))}
-                            <FormControl style={{ width: '70%' }}>
-                                <InputLabel id="agenda-selection-label">
-                                    Choose an agenda for this meeting
-                                </InputLabel>
-                                {}
-                                <Select
-                                    labelId="agenda-selection-label"
-                                    id="agenda-selection"
-                                    label="Choose an agenda for this meeting"
-                                    onChange={handlePartiComChange}
-                                    value={partiComSelected}
-                                >
-                                    <MenuItem                                            
-                                                value={"Recruiting"}
-
-                                    >
-                                    <span>{"Recruiting"}</span>
-                                    </MenuItem>
-                                    <MenuItem                                            
-                                                value={"Mentoring"}
-                                    ><span>{"Mentoring"}</span></MenuItem>
-                                    <MenuItem    
-                                                value={"Other"}
-                                    ><span>{"Other"}</span></MenuItem>
-                                </Select>
-                            </FormControl>
+                    <FormControl style={{ width: '70%' }}>
+                        <InputLabel id="agenda-selection-label">
+                            Choose an agenda for this meeting
+                        </InputLabel>
+                        {}
+                        <Select
+                            labelId="agenda-selection-label"
+                            id="agenda-selection"
+                            label="Choose an agenda for this meeting"
+                            onChange={handlePartiComChange}
+                            value={partiComSelected}
+                        >
+                            <MenuItem value={'Recruiting'}>
+                                <span>{'Recruiting'}</span>
+                            </MenuItem>
+                            <MenuItem value={'Mentoring'}>
+                                <span>{'Mentoring'}</span>
+                            </MenuItem>
+                            <MenuItem value={'Other'}>
+                                <span>{'Other'}</span>
+                            </MenuItem>
+                        </Select>
+                    </FormControl>
                 </div>
                 <div
                     style={{

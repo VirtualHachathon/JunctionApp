@@ -1,3 +1,5 @@
+// @ts-nocheck
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouteMatch } from 'react-router'

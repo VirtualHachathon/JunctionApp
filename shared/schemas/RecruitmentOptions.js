@@ -11,7 +11,7 @@ const mongooseSchema = new mongoose.Schema({
             },
             message: () =>
                 `Status must be one of ${Object.keys(
-                    Misc.recruitmentStatuses.items
+                    Misc.recruitmentStatuses.items,
                 ).join(', ')}`,
         },
     },
@@ -27,7 +27,7 @@ const mongooseSchema = new mongoose.Schema({
             },
             message: () =>
                 `Relocation must be one of ${Object.keys(
-                    Misc.relocationOptions.items
+                    Misc.relocationOptions.items,
                 ).join(', ')}`,
         },
     },

@@ -37,19 +37,19 @@ AchievementSchema.index({
 
 AchievementSchema.set('timestamps', true)
 
-AchievementSchema.statics.clearTrackPlacementAchievements = async function(
-    event
+AchievementSchema.statics.clearTrackPlacementAchievements = async function (
+    event,
 ) {
     return Achievement.remove({
         event: event._id,
         type: AchievementTypes.trackPlacement.id,
     })
 }
-AchievementSchema.statics.createTrackPlacementAchievements = async function(
+AchievementSchema.statics.createTrackPlacementAchievements = async function (
     event,
     projectId,
     track,
-    placement
+    placement,
 ) {
     const project = await Project.findById(projectId)
     const members = await Team.getMembers(project.team)
@@ -68,18 +68,18 @@ AchievementSchema.statics.createTrackPlacementAchievements = async function(
     })
 }
 
-AchievementSchema.statics.clearOverallPlacementAchievements = async function(
-    event
+AchievementSchema.statics.clearOverallPlacementAchievements = async function (
+    event,
 ) {
     return Achievement.remove({
         event: event._id,
         type: AchievementTypes.overallPlacement.id,
     })
 }
-AchievementSchema.statics.createOverallPlacementAchievements = async function(
+AchievementSchema.statics.createOverallPlacementAchievements = async function (
     event,
     projectId,
-    placement
+    placement,
 ) {
     const project = await Project.findById(projectId)
     const members = await Team.getMembers(project.team)

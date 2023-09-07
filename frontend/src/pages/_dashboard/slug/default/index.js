@@ -88,22 +88,79 @@ export default ({ alerts }) => {
             </Helmet>
             <Box mt={2} />
             <Grid container spacing={5}>
-                
                 {event?.demoInstructions && (
-                <div style={{ marginTop: 20, marginBottom: 20, marginLeft: 20, padding: 24, backgroundColor: '#cff4fc', borderWidth: 1, borderColor: '#9eeaf9', borderRadius: 13 }}>
-                    <h1 style={{ marginBottom: 0, marginTop: 0, lineHeight: 1, fontWeight: 'normal', color: '#087990' }}>Event roadmap</h1>
-                    <h3 style={{ marginTop: 0, fontWeight: 'normal', color: '#087990' }}>To view the event Roadmap please click on the link below.</h3>
-                    <a style={{ display: 'inline-block', fontSize: 18, fontWeight: 'bold', color: '#087990' }} href={event.demoInstructions} target="_blank">Go to roadmap</a>
-                </div>
-                )}
-                
-                
-                {event.slug == 'hydrogen-hackathon' && (
-                    <div style={{ marginTop: 20, marginBottom: 20, marginLeft: 0, padding: 24 }}>
-                        <a style={{ display: 'inline-block', fontSize: 18, fontWeight: 'bold', color: '#087990' }} href="https://docs.google.com/document/d/12Ci9mqdL21_fiLqhxh598l1dtuZ4-AH2j0h-Em2xyu8/edit" target="_blank">View programme</a>
+                    <div
+                        style={{
+                            marginTop: 20,
+                            marginBottom: 20,
+                            marginLeft: 20,
+                            padding: 24,
+                            backgroundColor: '#cff4fc',
+                            borderWidth: 1,
+                            borderColor: '#9eeaf9',
+                            borderRadius: 13,
+                        }}
+                    >
+                        <h1
+                            style={{
+                                marginBottom: 0,
+                                marginTop: 0,
+                                lineHeight: 1,
+                                fontWeight: 'normal',
+                                color: '#087990',
+                            }}
+                        >
+                            Event roadmap
+                        </h1>
+                        <h3
+                            style={{
+                                marginTop: 0,
+                                fontWeight: 'normal',
+                                color: '#087990',
+                            }}
+                        >
+                            To view the event Roadmap please click on the link
+                            below.
+                        </h3>
+                        <a
+                            style={{
+                                display: 'inline-block',
+                                fontSize: 18,
+                                fontWeight: 'bold',
+                                color: '#087990',
+                            }}
+                            href={event.demoInstructions}
+                            target="_blank"
+                        >
+                            Go to roadmap
+                        </a>
                     </div>
                 )}
-                
+
+                {event.slug == 'hydrogen-hackathon' && (
+                    <div
+                        style={{
+                            marginTop: 20,
+                            marginBottom: 20,
+                            marginLeft: 0,
+                            padding: 24,
+                        }}
+                    >
+                        <a
+                            style={{
+                                display: 'inline-block',
+                                fontSize: 18,
+                                fontWeight: 'bold',
+                                color: '#087990',
+                            }}
+                            href="https://docs.google.com/document/d/12Ci9mqdL21_fiLqhxh598l1dtuZ4-AH2j0h-Em2xyu8/edit"
+                            target="_blank"
+                        >
+                            View programme
+                        </a>
+                    </div>
+                )}
+
                 <div
                     style={{
                         height: '400px',

@@ -172,8 +172,7 @@ const FieldProps = {
     },
     dateOfBirth: {
         label: 'Date of Birth',
-        hint:
-            'You need to be at least 15 years old at the time of the event to apply.',
+        hint: 'You need to be at least 15 years old at the time of the event to apply.',
         hintMarkdown: false,
         placeholder: 'Select date',
         fieldType: FieldTypes.DATE,
@@ -361,8 +360,7 @@ const FieldProps = {
     },
     dietaryRestrictions: {
         label: 'Dietary Restrictions',
-        hint:
-            'Please select all dietary restrictions from the below list that apply to you - if none of the available options apply, you can leave this field empty.',
+        hint: 'Please select all dietary restrictions from the below list that apply to you - if none of the available options apply, you can leave this field empty.',
         hintMarkdown: false,
         fieldType: FieldTypes.DIETARY_RESTRICTIONS,
         copyToUserProfile: false,
@@ -397,8 +395,7 @@ const FieldProps = {
     },
     biography: {
         label: 'Biography',
-        hint:
-            'Add a bit of personal touch to your profile by writing a little bit more about yourself and what you do. Keep it short and simple, you have a chance to tell about your motivation later on in the application!',
+        hint: 'Add a bit of personal touch to your profile by writing a little bit more about yourself and what you do. Keep it short and simple, you have a chance to tell about your motivation later on in the application!',
         hintMarkdown: false,
         fieldType: FieldTypes.LONG_TEXT,
         schemaConfig: {
@@ -491,8 +488,7 @@ const FieldProps = {
     },
     numHackathons: {
         label: 'Number of hackathons attended',
-        hint:
-            "Don't worry if this is your first hackathon ever, your motivation is what matters.",
+        hint: "Don't worry if this is your first hackathon ever, your motivation is what matters.",
         hintMarkdown: false,
         fieldType: FieldTypes.NUM_HACKATHONS,
         copyToUserProfile: true,
@@ -508,8 +504,7 @@ const FieldProps = {
     },
     education: {
         label: 'Education',
-        hint:
-            'Select your most recent education, or the one that you currently have in progress and your expected graduation year.',
+        hint: 'Select your most recent education, or the one that you currently have in progress and your expected graduation year.',
         hintMarkdown: false,
         fieldType: FieldTypes.EDUCATION,
         copyToUserProfile: true,
@@ -523,8 +518,7 @@ const FieldProps = {
     },
     motivation: {
         label: 'Motivation',
-        hint:
-            'Why do you want to be accepted to this hackathon, and why should we choose you? **Please note that we regard a well-written letter of motivation very highly when reviewing applications.**',
+        hint: 'Why do you want to be accepted to this hackathon, and why should we choose you? **Please note that we regard a well-written letter of motivation very highly when reviewing applications.**',
         hintMarkdown: true,
         fieldType: FieldTypes.LONG_TEXT,
         copyToUserProfile: false,
@@ -548,8 +542,7 @@ const FieldProps = {
     },
     portfolio: {
         label: 'Link to Portfolio',
-        hint:
-            "Have a portfolio website or some other place where we can see the cool things you've done in the past? Please provide a valid link beginning with https://, or http://",
+        hint: "Have a portfolio website or some other place where we can see the cool things you've done in the past? Please provide a valid link beginning with https://, or http://",
         hintMarkdown: false,
         fieldType: FieldTypes.URL,
         copyToUserProfile: true,
@@ -574,8 +567,7 @@ const FieldProps = {
     },
     curriculumVitae: {
         label: 'CV',
-        hint:
-            'Do you have curriculum vitae for us to look over the studies and experiences that you find most relevant when reviewing your application?',
+        hint: 'Do you have curriculum vitae for us to look over the studies and experiences that you find most relevant when reviewing your application?',
         hintMarkdown: false,
         fieldType: FieldTypes.URL,
         copyToUserProfile: true,
@@ -600,8 +592,7 @@ const FieldProps = {
     },
     github: {
         label: 'Link to Github',
-        hint:
-            "Do you have a public GitHub/GitLab/BitBucket/other profile you wouldn't mind us taking a look at when reviewing your application?",
+        hint: "Do you have a public GitHub/GitLab/BitBucket/other profile you wouldn't mind us taking a look at when reviewing your application?",
         hintMarkdown: false,
         fieldType: FieldTypes.URL,
         copyToUserProfile: true,
@@ -626,8 +617,7 @@ const FieldProps = {
     },
     linkedin: {
         label: 'LinkedIn Profile',
-        hint:
-            'Do you have a LinkedIn or similar online profile to showcase your professional experience?',
+        hint: 'Do you have a LinkedIn or similar online profile to showcase your professional experience?',
         hintMarkdown: false,
         fieldType: FieldTypes.URL,
         copyToUserProfile: true,
@@ -700,8 +690,7 @@ const FieldProps = {
     },
     needsVisa: {
         label: 'Do you need a visa?',
-        hint:
-            'Do you need a visa to travel to the event? If you do, we will provide you with an invitation letter to make sure you get one. You can check e.g. here if you need a visa to travel to the event https://www.passportindex.org/comparebyPassport.php',
+        hint: 'Do you need a visa to travel to the event? If you do, we will provide you with an invitation letter to make sure you get one. You can check e.g. here if you need a visa to travel to the event https://www.passportindex.org/comparebyPassport.php',
         hintMarkdown: true,
         fieldType: FieldTypes.BOOLEAN,
         copyToUserProfile: false,
@@ -725,8 +714,7 @@ const FieldProps = {
     },
     needsTravelGrant: {
         label: 'Do you want to apply for a travel grant?',
-        hint:
-            "",
+        hint: '',
         hintMarkdown: true,
         fieldType: FieldTypes.BOOLEAN,
         copyToUserProfile: false,
@@ -750,8 +738,7 @@ const FieldProps = {
     },
     needsAccommodation: {
         label: 'Do you need free accommodation?',
-        hint:
-            'We can provide a warm space and a roof over your head during the event, where you will need your own sleeping bag and matress. Let us know if you need it, or if you will arrange your own accommodation during the event :)',
+        hint: 'We can provide a warm space and a roof over your head during the event, where you will need your own sleeping bag and matress. Let us know if you need it, or if you will arrange your own accommodation during the event :)',
         hintMarkdown: false,
         fieldType: FieldTypes.BOOLEAN,
         copyToUserProfile: false,
@@ -788,8 +775,7 @@ const FieldProps = {
     },
     teamOptions: {
         label: 'Applying as a team?',
-        hint:
-            'Do you already have people you want to participate with figured out?',
+        hint: 'Do you already have people you want to participate with figured out?',
         hintMarkdown: true,
         fieldType: FieldTypes.TEAM_OPTIONS,
         copyToUserProfile: false,
@@ -817,8 +803,7 @@ const FieldProps = {
     },
     secretCode: {
         label: 'Secret code',
-        hint:
-            "If you've received a secret code for this event, enter it here. Note: this is not the same as your team code, which you will be able to enter after completing your registration.",
+        hint: "If you've received a secret code for this event, enter it here. Note: this is not the same as your team code, which you will be able to enter after completing your registration.",
         hintMarkdown: false,
         fieldType: FieldTypes.SHORT_TEXT,
         copyToUserProfile: false,

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+// @ts-nocheck
 import React, { useState, useEffect, useCallback } from 'react'
 import { goBack } from 'connected-react-router'
 import { useDispatch } from 'react-redux'

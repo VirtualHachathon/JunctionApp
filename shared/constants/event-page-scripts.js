@@ -24,13 +24,11 @@ const ALLOWED_PAGE_SCRIPT_LOCATIONS = [
     },
 ]
 
-const ALLOWED_PAGE_SCRIPT_LOCATIONS_DICTIONARY = ALLOWED_PAGE_SCRIPT_LOCATIONS.reduce(
-    (acc, curr) => {
+const ALLOWED_PAGE_SCRIPT_LOCATIONS_DICTIONARY =
+    ALLOWED_PAGE_SCRIPT_LOCATIONS.reduce((acc, curr) => {
         acc[curr.id] = curr
         return acc
-    },
-    {},
-)
+    }, {})
 
 module.exports = {
     ALLOWED_PAGE_SCRIPT_LOCATIONS,

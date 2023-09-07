@@ -77,11 +77,23 @@ const Footer = props => {
                     </ExternalLink>
                     <Divider size={1} />
                 </div>
-                
-                {/*
+
                 <div className={classes.copyright}>
                     <Divider size={1} />
                     <span className={classes.copyright}>
+                        Virtual Hackathon Platform is based on the open-source
+                        Junction App and is customised in the context of the
+                        VirtualHackathon Erasmus+ EU project under the GPL3.0
+                        license. Source code modifications are available at{' '}
+                        <a
+                            style={{ color: 'white' }}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://github.com/VirtualHachathon/JunctionApp"
+                        >
+                            GitHub public repository
+                        </a>
+                        .<br />
                         Designed and developed with ❤️ and ☕ by the Junction
                         team, with the help of:
                     </span>
@@ -105,7 +117,6 @@ const Footer = props => {
                     </div>
                     <Divider size={1} />
                 </div>
-                */}
             </div>
         </div>
     )

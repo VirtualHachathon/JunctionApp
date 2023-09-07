@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 import React from 'react'
 import config from 'constants/config'
 import { Typography } from '@material-ui/core'

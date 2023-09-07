@@ -32,7 +32,7 @@ _.forOwn(RegistrationFields.getFields(), (value, fieldName) => {
     fields[fieldName] = generateField(
         value.schemaConfig.defaultRequire,
         value.schemaConfig.defaultEnable,
-        value.schemaConfig.editable
+        value.schemaConfig.editable,
     )
 
     graphQLFields[fieldName] = {

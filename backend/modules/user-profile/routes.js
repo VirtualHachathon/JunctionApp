@@ -23,18 +23,16 @@ const getUserProfilesPublic = asyncHandler(async (req, res) => {
 
 const getUserProfilesByTeamPublic = asyncHandler(async (req, res) => {
     const teamMembers = await TeamController.getTeamMembers(req.params.teamId)
-    const userProfiles = await UserProfileController.getUserProfilesPublic(
-        teamMembers,
-    )
+    const userProfiles =
+        await UserProfileController.getUserProfilesPublic(teamMembers)
     return res.status(200).json(userProfiles)
 })
 
 // Maybe trim down the data sent to the frontend
 const getUserProfilesByTeamId = asyncHandler(async (req, res) => {
     const teamMembers = await TeamController.getTeamMembers(req.params.teamId)
-    const userProfiles = await UserProfileController.getUserProfiles(
-        teamMembers,
-    )
+    const userProfiles =
+        await UserProfileController.getUserProfiles(teamMembers)
     return res.status(200).json(userProfiles)
 })
 

@@ -90,7 +90,7 @@ const Misc = {}
 Misc.numHackathonOptions = {
     items: numHackathonOptions,
     asArray: Object.keys(numHackathonOptions).map(
-        idx => numHackathonOptions[idx]
+        idx => numHackathonOptions[idx],
     ),
     getLabelForValue: value =>
         numHackathonOptions.hasOwnProperty(value)
@@ -101,7 +101,7 @@ Misc.numHackathonOptions = {
 Misc.recruitmentStatuses = {
     items: recruitmentStatuses,
     asArray: Object.keys(recruitmentStatuses).map(
-        id => recruitmentStatuses[id]
+        id => recruitmentStatuses[id],
     ),
     getLabelForValue: value =>
         recruitmentStatuses.hasOwnProperty(value)
@@ -122,7 +122,7 @@ Misc.travelGrantStatuses = {
     items: travelGrantStatuses,
     ids: Object.keys(travelGrantStatuses),
     asArray: Object.keys(travelGrantStatuses).map(
-        id => travelGrantStatuses[id]
+        id => travelGrantStatuses[id],
     ),
     getLabelForValue: value =>
         travelGrantStatuses.hasOwnProperty(value)

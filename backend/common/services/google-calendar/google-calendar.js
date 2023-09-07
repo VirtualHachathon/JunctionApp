@@ -6,16 +6,21 @@ const { updateMeetingGoogleInfo } = require('../../../modules/meeting/helpers')
 
 const TOKEN_PATH = `${__dirname}/token.json`
 const install = {
-        client_id: "752565208443-0g0ui7afokfi2b1t1von4qankq1vh62h.apps.googleusercontent.com",//"758477701769-hasb17jt161beprjr34kgqjma0sb815h.apps.googleusercontent.com",//global.gConfig.GOOGLE_CLIENT_ID,
-        project_id: "prod-calendar-386407",//"junction-calendar-375014",//global.gConfig.GOOGLE_PROJECT_ID,
-        auth_uri: "https://accounts.google.com/o/oauth2/auth",//"https://accounts.google.com/o/oauth2/auth", //global.gConfig.GOOGLE_AUTH_URI,
-        token_uri: "https://oauth2.googleapis.com/token",//"https://oauth2.googleapis.com/token", //global.gConfig.GOOGLE_TOKEN_URI,
-        auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",//"https://www.googleapis.com/oauth2/v1/certs", //global.gConfig.GOOGLE_AUTH_PROVIDER,
-        client_secret: "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",//"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", //global.gConfig.GOOGLE_CLIENT_SECRET,
-        redirect_uris:["http://localhost","https://app.hackjunction.com","https://eu.junctionplatform.com"]//["http://localhost","https://app.hackjunction.com"], //[ global.gConfig.GOOGLE_REDIRECT]
+    client_id:
+        '752565208443-0g0ui7afokfi2b1t1von4qankq1vh62h.apps.googleusercontent.com', //"758477701769-hasb17jt161beprjr34kgqjma0sb815h.apps.googleusercontent.com",//global.gConfig.GOOGLE_CLIENT_ID,
+    project_id: 'prod-calendar-386407', //"junction-calendar-375014",//global.gConfig.GOOGLE_PROJECT_ID,
+    auth_uri: 'https://accounts.google.com/o/oauth2/auth', //"https://accounts.google.com/o/oauth2/auth", //global.gConfig.GOOGLE_AUTH_URI,
+    token_uri: 'https://oauth2.googleapis.com/token', //"https://oauth2.googleapis.com/token", //global.gConfig.GOOGLE_TOKEN_URI,
+    auth_provider_x509_cert_url: 'https://www.googleapis.com/oauth2/v1/certs', //"https://www.googleapis.com/oauth2/v1/certs", //global.gConfig.GOOGLE_AUTH_PROVIDER,
+    client_secret: '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', //"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", //global.gConfig.GOOGLE_CLIENT_SECRET,
+    redirect_uris: [
+        'http://localhost',
+        'https://app.hackjunction.com',
+        'https://eu.junctionplatform.com',
+    ], //["http://localhost","https://app.hackjunction.com"], //[ global.gConfig.GOOGLE_REDIRECT]
 }
 const credentialsJ = {
-    installed: install
+    installed: install,
 }
 
 /**
@@ -42,16 +47,17 @@ function authorize(credentials, callback, callbackParameter = null) {
         callback(oAuth2Client, callbackParameter)
     })*/
     const token = {
-        access_token:"ya29.a0Ael9sCMoo8IabUn5UxLm0o0Hn02-tPd6zyfYQ_3oz3lfvbXv74tuNwiFaDuVBDYSpxXm3B5kevx6XBrXWLfKsgTmfmr7GK1GTZwp03vv0v21VYPoZfbNjhgNoeNn-uZNZpzFDLLLcEZSeZC9gD8gtxi595JAaCgYKARESARASFQF4udJhPMx_xWNBafEIZTOxqIDNag0163", //global.gConfig.GOOGLE_ACCESS_TOKEN,
-        refresh_token:"1//0cnu7b1wJjlcECgYIARAAGAwSNwF-L9Irtd583yuPmAaI4NpEfSqzdUfAiJHW05KC3rHwripIMUj9z2K65p1HZkOs9RjesuFdsFE",//global.gConfig.GOOGLE_REFRESH_TOKEN,
-        scope:"https://www.googleapis.com/auth/calendar", //global.gConfig.GOOGLE_SCOPE,
-        token_type:"Bearer", //global.gConfig.GOOGLE_TOKEN_TYPE,
-        expiry_date:"1680256081541", //global.gConfig.GOOGLE_EXPIRY_DATE
+        access_token:
+            'ya29.a0Ael9sCMoo8IabUn5UxLm0o0Hn02-tPd6zyfYQ_3oz3lfvbXv74tuNwiFaDuVBDYSpxXm3B5kevx6XBrXWLfKsgTmfmr7GK1GTZwp03vv0v21VYPoZfbNjhgNoeNn-uZNZpzFDLLLcEZSeZC9gD8gtxi595JAaCgYKARESARASFQF4udJhPMx_xWNBafEIZTOxqIDNag0163', //global.gConfig.GOOGLE_ACCESS_TOKEN,
+        refresh_token:
+            '1//0cnu7b1wJjlcECgYIARAAGAwSNwF-L9Irtd583yuPmAaI4NpEfSqzdUfAiJHW05KC3rHwripIMUj9z2K65p1HZkOs9RjesuFdsFE', //global.gConfig.GOOGLE_REFRESH_TOKEN,
+        scope: 'https://www.googleapis.com/auth/calendar', //global.gConfig.GOOGLE_SCOPE,
+        token_type: 'Bearer', //global.gConfig.GOOGLE_TOKEN_TYPE,
+        expiry_date: '1680256081541', //global.gConfig.GOOGLE_EXPIRY_DATE
     }
 
     oAuth2Client.setCredentials(JSON.parse(JSON.stringify(token)))
     callback(oAuth2Client, callbackParameter)
-
 }
 
 const insertEvent = (auth, eventInfo) => {
@@ -109,9 +115,12 @@ const deleteGoogleEvent = eventId => {
             return true
         })*/
 
-        authorize(JSON.parse(JSON.stringify(credentialsJ)),deleteEvent,eventId)
+        authorize(
+            JSON.parse(JSON.stringify(credentialsJ)),
+            deleteEvent,
+            eventId,
+        )
         return true
-
     } catch (err) {
         return false
     }
@@ -120,7 +129,9 @@ const deleteGoogleEvent = eventId => {
 const createGoogleEvent = event => {
     try {
         const googleEvent = {
-            summary: event.title + " ||  " + event.desc || 'Junction: meeting with challenge partner',
+            summary:
+                event.title + ' ||  ' + event.desc ||
+                'Junction: meeting with challenge partner',
             location: event.location || '',
             description: event.description || '',
             start: event.start,
@@ -160,7 +171,11 @@ const createGoogleEvent = event => {
         })*/
 
         console.log(credentialsJ)
-        authorize(JSON.parse(JSON.stringify(credentialsJ)),insertEvent,eventInfo)
+        authorize(
+            JSON.parse(JSON.stringify(credentialsJ)),
+            insertEvent,
+            eventInfo,
+        )
         return true
     } catch (err) {
         return false

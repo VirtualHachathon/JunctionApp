@@ -14,7 +14,7 @@ const LinkedInService = {
                         Host: 'www.linkedin.com',
                         'Content-Type': 'application/x-www-form-urlencoded',
                     },
-                }
+                },
             )
             .then(res => {
                 console.log('getAccessToken', res)

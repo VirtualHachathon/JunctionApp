@@ -42,7 +42,7 @@ HackerpackSchema.index(
     },
     {
         unique: true,
-    }
+    },
 )
 
 HackerpackSchema.plugin(mongooseSlugPlugin, {

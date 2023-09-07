@@ -72,7 +72,7 @@ Skills.skillLevelArray = Object.keys(skillLevels).map(idx => ({
     ...skillLevels[idx],
 }))
 Skills.skillLevelLabelsArray = Object.keys(skillLevels).map(
-    idx => skillLevels[idx].label
+    idx => skillLevels[idx].label,
 )
 Skills.getLabelForSkillLevel = level =>
     skillLevels.hasOwnProperty(level) ? skillLevels[level].label : ''

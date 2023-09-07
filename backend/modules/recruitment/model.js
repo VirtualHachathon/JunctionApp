@@ -28,7 +28,7 @@ const RecruitmentActionSchema = new mongoose.Schema(
             default: {},
         },
     },
-    { toJSON: { virtuals: true } }
+    { toJSON: { virtuals: true } },
 )
 
 RecruitmentActionSchema.virtual('_user', {
@@ -49,7 +49,7 @@ RecruitmentActionSchema.set('timestamps', true)
 
 const RecruitmentAction = mongoose.model(
     'RecruitmentAction',
-    RecruitmentActionSchema
+    RecruitmentActionSchema,
 )
 
 module.exports = { RecruitmentAction, RecruitmentActionSchema }

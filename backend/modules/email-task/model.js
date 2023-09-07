@@ -36,7 +36,7 @@ EmailTaskSchema.index(
     },
     {
         unique: true,
-    }
+    },
 )
 
 const EmailTask = mongoose.model('EmailTask', EmailTaskSchema)

@@ -49,44 +49,6 @@ export default () => {
         >
             <Helmet>
                 <title>{config.PLATFORM_OWNER_NAME}</title>
-                <meta
-                    name="keywords"
-                    content="Hackathon, hackathon platform, Junction, hackerpack, hackjunction"
-                />
-                <meta name="title" content="Junction App || Hackerpack" />
-                <meta
-                    property="og:title"
-                    content="Junction App || Hackerpack"
-                />
-
-                <meta
-                    name="twitter:title"
-                    content="Junction App || Hackerpack"
-                />
-                <meta
-                    name="description"
-                    content="Login to redeem our awesome hackerpack offers!"
-                />
-                <meta
-                    property="og:description"
-                    content="Login to redeem our awesome hackerpack offers!"
-                />
-                <meta
-                    name="twitter:description"
-                    content="Login to redeem our awesome hackerpack offers!"
-                />
-
-                <meta name="og:type" content="website" />
-                <meta property="og:image" content={config.SEO_IMAGE_URL} />
-                <meta name="twitter:image" content={config.SEO_IMAGE_URL} />
-                <meta property="og:image:width" content="1200" />
-                <meta property="og:image:height" content="630" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content={config.SEO_TWITTER_HANDLE} />
-                <meta
-                    name="twitter:creator"
-                    content={config.SEO_TWITTER_HANDLE}
-                />
             </Helmet>
             <Container center wrapperClass={classes.backButtonWrapper}>
                 <Button onClick={() => dispatch(push('/'))}>
@@ -99,19 +61,12 @@ export default () => {
             <Container center>
                 <PageHeader
                     heading="Hackerpack"
-                    subheading="We want you to be able to fully focus on making your hackathon project as cool as possible! These software provided by our partners will help you unleash your creativity and maximize your learning during our events."
+                    subheading="We want you to be able to fully focus on making your hackathon project as cool as possible! The following suggestions will help you unleash your creativity and maximize your learning during the hackathon. Use the roadmap for better undestanding of the learning flow."
                 />
                 <Divider variant="middle" />
                 {hackerpack.map(company => (
                     <HackerpackDetail partner={company} />
                 ))}
-                <Box p={2}>
-                    <Typography color="textSecondary" variant="subtitle1">
-                        Anything you would like to see here in the future?
-                        Contact us at partnerships@hackjunction.com with your
-                        suggestion.
-                    </Typography>
-                </Box>
             </Container>
         </PageWrapper>
     )

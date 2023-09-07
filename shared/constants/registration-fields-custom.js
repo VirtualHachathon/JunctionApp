@@ -55,7 +55,7 @@ const RegistrationFieldsCustom = {
                     yup
                         .string()
                         .oneOf(question.settings.options)
-                        .label(question.label)
+                        .label(question.label),
                 )
                 .label(question.label)
             return required ? base.required() : base

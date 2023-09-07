@@ -246,7 +246,6 @@ export default () => {
                                     type="text"
                                     name="email"
                                     label={t('Email_')}
-                                    placeholder="herbert.hacker@bighackathon.com"
                                     InputProps={{
                                         error: formik.errors.hasOwnProperty(
                                             'email',

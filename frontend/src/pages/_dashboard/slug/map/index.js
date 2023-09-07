@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
+/* eslint-disable no-unused-vars */
+// @ts-nocheck
 import React, { useEffect, useRef } from 'react'
 import FormControl from '@material-ui/core/FormControl'
 import FormGroup from '@material-ui/core/FormGroup'

@@ -6,10 +6,10 @@ const {
     GraphQLNonNull,
     GraphQLInputObjectType,
 } = require('graphql')
-const RegistrationQuestionSettingsType = require('./RegistrationQuestionSettings')
-    .graphql
-const RegistrationQuestionSettingsInput = require('./RegistrationQuestionSettings')
-    .graphqlInput
+const RegistrationQuestionSettingsType =
+    require('./RegistrationQuestionSettings').graphql
+const RegistrationQuestionSettingsInput =
+    require('./RegistrationQuestionSettings').graphqlInput
 
 const FIELD_TYPES = [
     'text',

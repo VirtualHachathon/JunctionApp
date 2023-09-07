@@ -124,7 +124,7 @@ clients:
       alg: RS256
       lifetime_in_seconds: 36000
       secret_encoded: false
-    logo_uri: 'https://www.hackjunction.com/static/media/text_white.4811a1ac.png'
+    logo_uri: 'https://res.cloudinary.com/alex-morgy/image/upload/v1645993441/samples/assets/vh-favicon_rsrqln.png'
     native_social_login:
       apple:
         enabled: false
@@ -293,7 +293,7 @@ tenant:
     include_email_in_reset_pwd_redirect: true
     include_email_in_verify_email_redirect: true
   picture_url: >-
-    https://res.cloudinary.com/hackjunction/image/upload/v1597153890/test/test/photo_2020-08-11_16-51-09.jpg
+    https://res.cloudinary.com/alex-morgy/image/upload/v1645993441/samples/assets/vh-favicon_rsrqln.png
   universal_login:
     colors:
       page_background: '#a4f8fd'
@@ -605,7 +605,7 @@ branding:
     page_background: '#a4f8fd'
     primary: '#bcd800'
   logo_url: >-
-    https://res.cloudinary.com/hackjunction/image/upload/v1597153890/test/test/photo_2020-08-11_16-51-09.jpg
+    https://res.cloudinary.com/alex-morgy/image/upload/v1645993441/samples/assets/vh-favicon_rsrqln.png
 prompts:
   universal_login_experience: new
   identifier_first: false

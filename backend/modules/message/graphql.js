@@ -12,10 +12,9 @@ const {
 const { GraphQLDate } = require('graphql-iso-date')
 const Redis = require('ioredis')
 
-
 const pubsub = new RedisPubSub({
     publisher: new Redis(process.env.REDISCLOUD_URL),
-    subscriber: new Redis(process.env.REDISCLOUD_URL)
+    subscriber: new Redis(process.env.REDISCLOUD_URL),
 })
 const MessageInput = new GraphQLInputObjectType({
     name: 'MessageInput',

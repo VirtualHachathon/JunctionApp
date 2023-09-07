@@ -22,7 +22,7 @@ router.route('/anonymize-db').get(async (req, res) => {
                 update: {
                     $set: {
                         'answers.email': `juuso.lappalainen+${Math.floor(
-                            Math.random() * 1000000
+                            Math.random() * 1000000,
                         )}@hackjunction.com`,
                     },
                 },
@@ -43,7 +43,7 @@ router.route('/anonymize-db').get(async (req, res) => {
                 update: {
                     $set: {
                         email: `juuso.lappalainen+${Math.floor(
-                            Math.random() * 1000000
+                            Math.random() * 1000000,
                         )}@hackjunction.com`,
                     },
                 },
@@ -71,7 +71,7 @@ router.route('/sync-user-profiles').get(async (req, res) => {
     userProfiles.forEach(user => {
         const registration = _.find(
             registrations,
-            reg => reg.user === user.userId
+            reg => reg.user === user.userId,
         )
 
         if (registration && registration.answers) {

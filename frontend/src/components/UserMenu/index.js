@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { push } from 'connected-react-router'
@@ -111,7 +112,7 @@ export default () => {
                                     />
                                 </ListItem>
                             </Grid>
-                            
+
                             {/*
                             <Grid item xs={12}>
                                 <Divider variant="middle" />
@@ -230,7 +231,7 @@ export default () => {
                         </Grid>
                         {renderEventItems()}
                         {renderOtherItems()}
-                        
+
                         {/*
                         <Grid item xs={12}>
                             <Divider variant="middle" />

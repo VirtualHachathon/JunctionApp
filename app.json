@@ -1,6 +1,6 @@
 {
-    "name": "Junction App",
-    "description": "Junction all-in-one hackathon platform",
+    "name": "VirtualHackathon Project",
+    "description": "VirtualHackathon platform based on Junction all-in-one hackathon platform",
     "buildpacks": [
         {
             "url": "heroku/nodejs"

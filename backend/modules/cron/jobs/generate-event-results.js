@@ -9,9 +9,7 @@ const job = async () => {
 
     /** Find all events which have ended */
     const pastEvents = allEvents.filter(event => {
-        return moment(event.endTime)
-            .tz(event.timezone)
-            .isBefore()
+        return moment(event.endTime).tz(event.timezone).isBefore()
     })
 
     /** */

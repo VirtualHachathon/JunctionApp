@@ -39,7 +39,7 @@ RankingsSchema.index(
     {
         unique: true,
         sparse: true,
-    }
+    },
 )
 
 RankingsSchema.set('timestamps', true)

@@ -21,7 +21,7 @@ const buildFiltersArray = filters => {
                     return FilterFunctions.isEqualTo(
                         item,
                         filter.path,
-                        filter.value
+                        filter.value,
                     )
                 }
             }
@@ -30,7 +30,7 @@ const buildFiltersArray = filters => {
                     return !FilterFunctions.isEqualTo(
                         item,
                         filter.path,
-                        filter.value
+                        filter.value,
                     )
                 }
             }
@@ -39,7 +39,7 @@ const buildFiltersArray = filters => {
                     return FilterFunctions.isOneOf(
                         item,
                         filter.path,
-                        filter.value
+                        filter.value,
                     )
                 }
             }
@@ -48,7 +48,7 @@ const buildFiltersArray = filters => {
                     return !FilterFunctions.isOneOf(
                         item,
                         filter.path,
-                        filter.value
+                        filter.value,
                     )
                 }
             }
@@ -57,7 +57,7 @@ const buildFiltersArray = filters => {
                     return FilterFunctions.contains(
                         item,
                         filter.path,
-                        filter.value
+                        filter.value,
                     )
                 }
             }
@@ -66,7 +66,7 @@ const buildFiltersArray = filters => {
                     return !FilterFunctions.contains(
                         item,
                         filter.path,
-                        filter.value
+                        filter.value,
                     )
                 }
             }
@@ -75,7 +75,7 @@ const buildFiltersArray = filters => {
                     return FilterFunctions.containsOneOf(
                         item,
                         filter.path,
-                        filter.value
+                        filter.value,
                     )
                 }
             }
@@ -84,7 +84,7 @@ const buildFiltersArray = filters => {
                     return !FilterFunctions.containsOneOf(
                         item,
                         filter.path,
-                        filter.value
+                        filter.value,
                     )
                 }
             }
@@ -93,7 +93,7 @@ const buildFiltersArray = filters => {
                     return !FilterFunctions.isGte(
                         item,
                         filter.path,
-                        filter.value
+                        filter.value,
                     )
                 }
             }
@@ -102,7 +102,7 @@ const buildFiltersArray = filters => {
                     return FilterFunctions.isGte(
                         item,
                         filter.path,
-                        filter.value
+                        filter.value,
                     )
                 }
             }
@@ -111,7 +111,7 @@ const buildFiltersArray = filters => {
                     return !FilterFunctions.isLte(
                         item,
                         filter.path,
-                        filter.value
+                        filter.value,
                     )
                 }
             }
@@ -120,7 +120,7 @@ const buildFiltersArray = filters => {
                     return FilterFunctions.isLte(
                         item,
                         filter.path,
-                        filter.value
+                        filter.value,
                     )
                 }
             }

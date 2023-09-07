@@ -24,7 +24,7 @@ WinnerVoteSchema.index(
     },
     {
         unique: true,
-    }
+    },
 )
 
 const WinnerVote = mongoose.model('WinnerVote', WinnerVoteSchema)

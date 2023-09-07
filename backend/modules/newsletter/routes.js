@@ -8,7 +8,7 @@ const subscribeToNewsletter = asyncHandler(async (req, res) => {
     await SendgridService.subscribeToMailingList(
         req.body.email,
         req.body.country,
-        global.gConfig.SENDGRID_MAILING_LIST_ID
+        global.gConfig.SENDGRID_MAILING_LIST_ID,
     )
     return res.sendStatus(200)
 })
